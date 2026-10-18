@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letters I Leave Behind</title>
+<meta name="description" content="A small collection of letters written for the people who have been part of my life.">
+<style>
+:root{
+  --paper:#f7f1e3; --paper-deep:#efe6d1; --card:#fbf7ec; --ink:#2f251c; --ink-soft:#6b5a48;
+  --line:#d9ccb0; --seal:#7d2e2a; --seal-ink:#fbf1e6; --shadow:rgba(60,40,20,.14);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --hand:"Segoe Script","Snell Roundhand","Apple Chancery","Brush Script MT",cursive;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#1f1913; --paper-deep:#18130f; --card:#2a2219; --ink:#efe4d0; --ink-soft:#b5a48d;
+  --line:#4a3d2e; --seal:#b0453f; --shadow:rgba(0,0,0,.5);}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.75;
+  background-image:radial-gradient(var(--line) .6px,transparent .7px);background-size:22px 22px;overflow-x:hidden}
+:focus-visible{outline:3px solid var(--seal);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:62rem;margin:0 auto;padding:0 1.25rem}
+header{padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.site-title{font-size:1.15rem;font-style:italic;letter-spacing:.02em;margin:0}
+
+/* Hero */
+.hero{display:grid;gap:2rem;padding:3.5rem 0 3rem;align-items:center}
+.hero h1{font-size:clamp(2.1rem,7vw,3.6rem);line-height:1.12;font-weight:400;margin:0 0 1.25rem}
+.hero p{max-width:34rem;color:var(--ink-soft);margin:0 0 1.75rem}
+.btn{display:inline-block;min-height:48px;padding:.7rem 1.6rem;border:1px solid var(--ink);border-radius:2px;color:var(--ink);
+  background:transparent;font:inherit;text-decoration:none;cursor:pointer;transition:background .25s,color .25s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.envelope{width:min(100%,19rem);justify-self:center;filter:drop-shadow(0 12px 18px var(--shadow));transform:rotate(-3deg)}
+.envelope .flap{transform-origin:150px 20px;animation:flap 1.6s .3s ease-out both}
+@keyframes flap{from{transform:scaleY(-1)}to{transform:scaleY(1)}}
+@media(min-width:760px){.hero{grid-template-columns:1.3fr 1fr;padding:5rem 0 4.5rem}}
+
+/* Collection */
+h2{font-weight:400;font-size:1.6rem;margin:0 0 1.5rem;font-style:italic}
+.collection{padding-bottom:4rem}
+.grid{list-style:none;margin:0;padding:0;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.card{position:relative;display:block;width:100%;min-height:9.5rem;text-align:left;font:inherit;color:inherit;cursor:pointer;
+  background:var(--card);border:1px solid var(--line);padding:1.5rem 1.4rem 1.3rem;
+  box-shadow:0 1px 0 var(--line),0 8px 14px -10px var(--shadow);transition:transform .25s,box-shadow .25s}
+.card::before{content:"";position:absolute;inset:6px;border:1px dashed var(--line);pointer-events:none}
+.card:hover{transform:translateY(-3px);box-shadow:0 1px 0 var(--line),0 14px 20px -10px var(--shadow)}
+.card .to{font-size:.85rem;color:var(--ink-soft);font-style:italic}
+.card .name{display:block;font-size:1.45rem;line-height:1.25;margin:.1rem 0 .35rem;overflow-wrap:anywhere}
+.card .rel{display:block;color:var(--ink-soft);font-size:.95rem}
+.card .ded{display:block;margin-top:.6rem;font-style:italic;font-size:.95rem;color:var(--ink-soft)}
+.seal{position:absolute;right:1rem;bottom:.9rem;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--seal);
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.12)}
+.empty{padding:3rem 1rem;text-align:center;font-style:italic;color:var(--ink-soft);border:1px dashed var(--line);background:var(--card)}
+[hidden]{display:none!important}
+
+/* Reading view */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;overflow:auto;color:var(--ink)}
+dialog::backdrop{background:rgba(30,20,10,.62)}
+.sheet{position:relative;max-width:42rem;margin:max(1rem,4vh) auto;background:var(--card);border:1px solid var(--line);
+  padding:clamp(1.5rem,6vw,3.5rem) clamp(1.25rem,6vw,3.75rem);box-shadow:0 20px 50px var(--shadow);animation:open .45s ease-out}
+@keyframes open{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sheet-top{display:flex;justify-content:space-between;margin-bottom:1.5rem}
+.close{min-height:48px;padding:.5rem 1.2rem}
+.sheet h3{font-weight:400;font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.2;margin:0;overflow-wrap:anywhere}
+.sheet .rel{color:var(--ink-soft);font-style:italic;margin:.3rem 0 0}
+.sheet .ded{margin:1rem 0 0;padding-left:1rem;border-left:2px solid var(--seal);font-style:italic;color:var(--ink-soft)}
+.sheet hr{border:0;border-top:1px solid var(--line);margin:1.75rem 0}
+.body p{margin:0 0 1.2rem;white-space:pre-line;overflow-wrap:anywhere;max-width:38rem}
+.date{color:var(--ink-soft);margin:0 0 1.2rem;font-size:.95rem}
+.sig{font-family:var(--hand);font-size:1.6rem;margin:1.5rem 0 0;overflow-wrap:anywhere}
+.sheet .back{margin-top:2.25rem}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;text-align:center;color:var(--ink-soft);font-size:.95rem;font-style:italic}
+footer p{margin:.2rem 0}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <!-- EDIT: the title shown at the top of the page (also change the <title> tag above) -->
+    <p class="site-title" id="siteTitle">Letters I Leave Behind</p>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="heroTitle">
+    <div>
+      <!-- EDIT: your headline and introduction -->
+      <h1 id="heroTitle">Letters for the people who made my life what it was.</h1>
+      <p>Some words deserve to stay. This is a small place for the people who have left a mark on my life, and the things I hope they will know.</p>
+      <a class="btn" href="#letters">Browse the letters</a>
+    </div>
+    <svg class="envelope" viewBox="0 0 300 210" role="img" aria-label="A sealed envelope">
+      <rect x="10" y="20" width="280" height="180" fill="#efe3c8" stroke="#bfae8a" stroke-width="2"/>
+      <path d="M10 200 L150 105 L290 200" fill="none" stroke="#bfae8a" stroke-width="2"/>
+      <path class="flap" d="M10 20 L150 125 L290 20 Z" fill="#f6ecd5" stroke="#bfae8a" stroke-width="2"/>
+      <circle cx="150" cy="118" r="17" fill="#7d2e2a"/>
+      <circle cx="150" cy="118" r="10" fill="none" stroke="#fbf1e6" stroke-opacity=".35" stroke-width="2"/>
+    </svg>
+  </section>
+
+  <section class="wrap collection" id="letters" aria-labelledby="collTitle">
+    <h2 id="collTitle">The letters</h2>
+    <ul class="grid" id="grid"></ul>
+    <p class="empty" id="empty" hidden>No letters here yet. Some words are still waiting to be written.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Words kept, so the people who mattered are remembered.</p>
+    <!-- EDIT: add your name here if you like, e.g. "Written by Your Name" -->
+    <p id="footerName"></p>
+  </div>
+</footer>
+
+<dialog id="reader" aria-labelledby="rName">
+  <article class="sheet">
+    <div class="sheet-top"><button class="btn close" type="button" id="closeTop">Back to the letters</button></div>
+    <h3 id="rName"></h3>
+    <p class="rel" id="rRel" hidden></p>
+    <p class="ded" id="rDed" hidden></p>
+    <hr>
+    <p class="date" id="rDate" hidden></p>
+    <div class="body" id="rBody"></div>
+    <p class="sig" id="rSig" hidden></p>
+    <button class="btn back" type="button" id="closeBottom">Back to the letters</button>
+  </article>
+</dialog>
+
+<script>
+/* =====================================================================
+   ADD YOUR LETTERS HERE
+   ---------------------------------------------------------------------
+   To add a letter:
+   1. Copy the example block below (from the "{" to the "},").
+   2. Paste it inside the square brackets [ ], and delete the two comment marks
+      (the slash-star line above it and the star-slash line below it).
+   3. Change the words. Save. The card appears by itself.
+
+   Fields:
+   id           A short unique name with no spaces, e.g. "mom" or "best-friend-sam". Never repeat one.
+   name         Who the letter is for. (Required)
+   relationship Optional, e.g. "My sister". Use "" to leave it blank.
+   dedication   Optional short line shown on the card. Use "" to leave it blank.
+   date         Optional, e.g. "June 2026". Use "" to leave it blank.
+   letter       The letter itself, between backticks ` `. Press Enter for new lines.
+                Leave an empty line between paragraphs. Apostrophes and "quotes" are fine.
+                (Do not type a backtick ` inside the letter.)
+   signature    Optional, e.g. "With love, me". Use "" to leave it blank.
+   Remember the comma after each closing "}" when you have more than one letter.
+   ===================================================================== */
+const letters = [
+
+  /*
+  {
+    id: "example-recipient",
+    name: "Recipient's Name",
+    relationship: "Optional relationship",
+    dedication: "An optional short dedication",
+    date: "",
+    letter: `Write the complete letter here.
+
+    Start a new paragraph after an empty line.`,
+    signature: ""
+  },
+  */
+
+];
+/* ============== END OF LETTERS. You do not need to edit below. ============== */
+
+(function () {
+  var grid = document.getElementById("grid");
+  var empty = document.getElementById("empty");
+  var reader = document.getElementById("reader");
+  var lastCard = null;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text) n.textContent = text;   // textContent keeps letters as plain, safe text
+    return n;
+  }
+  function setText(id, value) {
+    var n = document.getElementById(id);
+    n.textContent = value || "";
+    n.hidden = !value;
+  }
+
+  function openLetter(item, card) {
+    lastCard = card;
+    document.getElementById("rName").textContent = item.name || "";
+    setText("rRel", item.relationship);
+    setText("rDed", item.dedication);
+    setText("rDate", item.date);
+    setText("rSig", item.signature);
+    var body = document.getElementById("rBody");
+    body.textContent = "";
+    String(item.letter || "").replace(/\r\n/g, "\n").split(/\n\s*\n/).forEach(function (para) {
+      var t = para.replace(/^\n+|\n+$/g, "");
+      if (t.trim()) body.appendChild(el("p", "", t));
+    });
+    if (typeof reader.showModal === "function") reader.showModal(); else reader.setAttribute("open", "");
+    reader.scrollTop = 0;
+  }
+
+  function closeLetter() {
+    if (reader.close) reader.close(); else reader.removeAttribute("open");
+  }
+
+  if (!letters.length) {
+    empty.hidden = false;
+  } else {
+    letters.forEach(function (item) {
+      var li = document.createElement("li");
+      var b = el("button", "card");
+      b.type = "button";
+      b.setAttribute("aria-label", "Read the letter for " + (item.name || "this person"));
+      b.appendChild(el("span", "to", "A letter for"));
+      b.appendChild(el("span", "name", item.name));
+      if (item.relationship) b.appendChild(el("span", "rel", item.relationship));
+      if (item.dedication) b.appendChild(el("span", "ded", item.dedication));
+      b.appendChild(el("span", "seal"));
+      b.addEventListener("click", function () { openLetter(item, b); });
+      li.appendChild(b);
+      grid.appendChild(li);
+    });
+  }
+
+  document.getElementById("closeTop").addEventListener("click", closeLetter);
+  document.getElementById("closeBottom").addEventListener("click", closeLetter);
+  // Click on the dark area outside the paper also closes the letter
+  reader.addEventListener("click", function (e) { if (e.target === reader) closeLetter(); });
+  // Escape closes the dialog natively; return focus to the card that was opened
+  reader.addEventListener("close", function () { if (lastCard) lastCard.focus(); });
+})();
+</script>
+</body>
+</html>
